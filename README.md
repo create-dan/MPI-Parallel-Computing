@@ -17,3 +17,35 @@ OpenMPI is a popular MPI implementation for Ubuntu. You can install it using apt
 ```bash
 sudo apt-get update
 sudo apt-get install libopenmpi-dev
+
+
+Simple MPI code
+
+```bash
+
+#include <mpi.h>
+
+int main(int argc, char **argv) {
+  MPI_Init(&argc, &argv);
+
+  int my_rank;
+  MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
+
+  printf("Hello from rank %d!\n", my_rank);
+
+  MPI_Finalize();
+
+  return 0;
+}
+
+To compile this program, you can use the following command:
+
+```bash
+mpicc hello_world.c -o hello_world 
+
+
+To run the program on 4 processors, you can use the following command:
+```bash
+mpirun -np 4 hello_world
+
+
