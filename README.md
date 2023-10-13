@@ -21,7 +21,7 @@ sudo apt-get install libopenmpi-dev
 
 Simple MPI code
 
-```bash
+
 
 #include <mpi.h>
 
@@ -40,12 +40,12 @@ int main(int argc, char **argv) {
 
 To compile this program, you can use the following command:
 
-```bash
+
 mpicc hello_world.c -o hello_world 
 
 
 To run the program on 4 processors, you can use the following command:
-```bash
+
 mpirun -np 4 hello_world
 
 
